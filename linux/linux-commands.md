@@ -64,4 +64,11 @@
   - man mkdir  # mkdir 명령어에 대한 설명 출력
 
 
+- Find the file
+  - find directory -name "file-name"  # 디렉토리에서 파일 찾기
+  - find directory -name "*.txt"  # 디렉토리에서 txt 파일 찾기
 
+
+- Find the file with grep
+  - grep "search-text" file-name  # 파일에서 텍스트 찾기
+  - grep -r "search-text" directory-name  # 디렉토리에서 텍스트 찾기
