@@ -1,5 +1,7 @@
-# 컴퓨터 개발 지식
+## 카테고리 별 지식 정리
 
-## - git
+### - [git](https://github.com/gominnam/devNote/tree/main/git)
 
-## - linux
+### - [linux](https://github.com/gominnam/devNote/tree/main/linux)
+- shell script
+
