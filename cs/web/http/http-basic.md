@@ -7,7 +7,7 @@
 - stateless protocol이다. 즉, 서버는 두 요청 사이에 어떠한 상태를 유지하지 않는다.
 - client(보통 web-browser)와 server 사이에는 수많은 proxy 엔티티가 존재.
 
-<img src="../../static/images/web-http.png" alt="html 구조" style="width:50%; height:50%">
+<img src="../../../static/images/web-http.png" alt="html 구조" style="width:50%; height:50%">
 
 ## Client: the user-agent
 
