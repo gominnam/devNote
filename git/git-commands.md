@@ -19,6 +19,13 @@
   - git merge branch-name
 
 
+- 작업중인 변경사항 임시저장(stash) 
+  - git stash save "message"
+  - git stash list  # 임시저장 목록 확인
+  - git stash apply stash@{0}  # stash 목록에서 0번째 stash 적용
+  - git stash drop stash@{0}  # stash 목록에서 0번째 stash 삭제
+  - git stash pop stash@{0}  # stash를 현재 작업 디렉토리에 적용하고, 적용한 stash를 제거
+
 - 브랜치 리베이스(rebase)  # 가지 쳐서 예쁘게 관리할 수 있음(시간적 흐름도 더 명확)
   - git rebase branch-name
   - git rebase -i branch-name  # 인터렉티브 모드로 브랜치 관리
