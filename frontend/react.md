@@ -49,6 +49,13 @@ class MyCompenet extends Component {
   그래서 React에서는 `ReactDOMServer`에서 처리한다. 
 
 
+### 가상 DOM(Virtual DOM)
+
+- React에서는 HTML의 DOM 요소를 다른 영역에 가상화된 DOM 요소를 통해 관리한다.
+  이는 DOM을 수정하는 과정이 메모리 상의 객체를 수정하는 것보다 훨씬 오래걸리기 때문이다.<br>
+  즉, 메모리상의 DOM 구조를 업데이트한 다음. 가상 DOM의 현재 상태와 이전 상태의 차이를 구해서 그 차이만 실제 DOM에 반영하여 효율적으로 렌더링을 처리한다.<br>
+
+
 ## reference
 
 - 프론트엔드 개발 첫걸음(정보문화사) 
