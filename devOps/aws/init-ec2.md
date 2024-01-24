@@ -33,7 +33,7 @@
 
 //ssh pem file로 aws EC2 인스턴스 로그인하기
 chmod 400 /path/to/private-key.pem
-ssh -i "~/path/to/private-key.pem" ec2-user@ec2-43-201-62-135.ap-northeast-2.compute.amazonaws.com
+ssh -i "~/path/to/private-key.pem" ec2-user@퍼블릭 IPv4 DNS
 
 //개발환경 설정 java17
 - sudo yum install java-17-amazon-corretto
