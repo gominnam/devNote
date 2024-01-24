@@ -39,6 +39,18 @@ ssh -i "~/path/to/private-key.pem" ec2-user@퍼블릭 IPv4 DNS
 - sudo yum install java-17-amazon-corretto
 - java -version
 
+//my-sql은 Amazon Linux 2는 CentOS 7과는 다르기 때문에 MySQL Community Server를 설치하는 데에 일부 라이브러리의 버전 충돌 문제가 발생하고 있습니다.  
+- wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+- sudo rpm -ivh mysql80-community-release-el7-3.noarch.rpm
+- sudo yum-config-manager --disable mysql80-community
+- sudo yum-config-manager --enable mysql57-community
+- sudo yum install -y mysql-community-server
+- sudo service mysqld start //mysql 서버 부팅시 자동 시작
+- sudo grep 'temporary password' /var/log/mysqld.log //임시 비밀번호 확인
+
+
+
+
 ```
 
 
