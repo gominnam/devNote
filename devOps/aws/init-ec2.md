@@ -62,6 +62,11 @@ MYSQL 설치하는 방법은 2가지로 진행해봤는데 docker가 더 좋다�
 sudo yum install -y docker
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -p 3306:3306 -d mysql:8.0
 docker exec -it some-mysql mysql -uroot -p
+
+//추가 docker commands
+docker run -d mysql8:태그 //docker image 실행하는 방법
+sudo docker rmi -f mysql:latest //docker image 삭제하는 방법
+sudo docker logs [컨테이너 ID 또는 이름] //docker container 로그 확인하는 방법
 ```
 
 

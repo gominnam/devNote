@@ -72,3 +72,11 @@
 - Find the file with grep
   - grep "search-text" file-name  # 파일에서 텍스트 찾기
   - grep -r "search-text" directory-name  # 디렉토리에서 텍스트 찾기
+
+
+- Find the running process Info 
+  - ps -ef | grep java  # java 프로세스 찾기
+
+
+- Kill the process
+  - kill -9 process-id  # 프로세스 종료 // -9: 강제 종료
