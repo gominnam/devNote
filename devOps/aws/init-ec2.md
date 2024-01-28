@@ -20,7 +20,7 @@
 ```
 
 
-### EC2 인스턴스 접속
+### EC2 인스턴스 접속 후 환경 세팅
 ```linux
 - sudo yum update -y
 - sudo yum install ruby -y
@@ -30,15 +30,23 @@
 - chmod +x ./install
 - sudo ./install auto
 - sudo service codedeploy-agent status
+```
 
-//ssh pem file로 aws EC2 인스턴스 로그인하기
+### ssh pem file로 aws EC2 인스턴스 로그인하기
+```Linux
 chmod 400 /path/to/private-key.pem
 ssh -i ~/path/to/private-key.pem {ec2-user}@{퍼블릭 IPv4 DNS}
+```
 
-//개발환경 설정 java17
+### 개발환경 설정 세팅
+```Linux
+//JAVA 17 version 설치하기
 - sudo yum install java-17-amazon-corretto
 - java -version
 
+MYSQL 설치하는 방법은 2가지로 진행해봤는데 docker가 더 좋다고 판단하여 적용
+
+1. AWS EC2 운영체제에 바로 설치하기
 //my-sql은 Amazon Linux 2는 CentOS 7과는 다르기 때문에 MySQL Community Server를 설치하는 데에 일부 라이브러리의 버전 충돌 문제가 발생하고 있습니다.  
 - wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
 - sudo rpm -ivh mysql80-community-release-el7-3.noarch.rpm
@@ -48,9 +56,23 @@ ssh -i ~/path/to/private-key.pem {ec2-user}@{퍼블릭 IPv4 DNS}
 - sudo service mysqld start //mysql 서버 부팅시 자동 시작
 - sudo grep 'temporary password' /var/log/mysqld.log //임시 비밀번호 확인
 
+2 AWS EC2 운영체제에 docker 설치하여 mysql 환경 구성하기
+// 아래 예시는 AWS EC2 인스턴스 운영체제 환경: Amazon Linux 2023
+// docker 설치하기
+sudo yum install -y docker
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -p 3306:3306 -d mysql:8.0
+docker exec -it some-mysql mysql -uroot -p
+```
 
 
-
+### MYSQL 환경 설정
+```mysql
+-- mysql 접속
+1. CREATE USER 'username'@'%' IDENTIFIED BY 'password'; -- 계정생성
+2. GRANT ALL PRIVILEGES ON *.* TO 'username'@'%'; -- 계정생성
+3. CREATE DATABASE schema_name;  --스키마 생성
+4. GRANT ALL PRIVILEGES ON schema_name.* TO 'username'@'%'; -- 스키마에 계정 권한 주기
+5. FLUSH PRIVILEGES; -- 권한 적용
 ```
 
 
