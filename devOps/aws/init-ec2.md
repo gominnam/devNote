@@ -67,6 +67,7 @@ docker exec -it some-mysql mysql -uroot -p
 docker run -d mysql8:태그 //docker image 실행하는 방법
 sudo docker rmi -f mysql:latest //docker image 삭제하는 방법
 sudo docker logs [컨테이너 ID 또는 이름] //docker container 로그 확인하는 방법
+sudo usermod -aG docker ${USER} //docker 명령어를 sudo 없이 사용하는 방법 github-actions에서 docker 명령어를 사용할 때 필요
 ```
 
 

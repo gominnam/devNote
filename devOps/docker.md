@@ -53,6 +53,11 @@ $ docker build -t username/이미지명:태그명 경로
 $ docker push username/이미지명:태그명
 ```
 
+## docker logs
+```agsl
+$ docker logs [컨테이너 ID]
+```
+
 ## Reference Documentation And Sites
 
 - [AWS Docker](https://aws.amazon.com/ko/docker/)
