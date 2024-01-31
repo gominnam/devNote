@@ -20,6 +20,39 @@
 - 반면에 도커는 호스트 OS위에 도커 엔진이라는 프로그램을 통해 컨테이너를 생성하여 사용한다.(실행 환경만 독립적)</br>
 
 
+# Docker 사용해보기
+
+## 1. Docker 로그인
+```agsl
+// Docker login
+$ docker login
+
+- 로그인 중 Error saving credentials: error storing credentials - err: exit status 1, out: `user boosterko is not authorized to access userid@gmail.com
+위와 같은 오류가 발생한 경우에는 
+  - cd ~/.docker
+  - vi config.json
+    - "credsStore": "desktop" 를 "credsStore": "osxkeychain" 로 변경 후 저장
+  - docker login 을 다시 실행한다. 
+```
+
+## dockerfile 작성
+```agsl 
+//dockerfile
+# JAVA 18 image
+FROM openjdk:18
+ 
+ 
+# OPEN PORT 8080
+EXPOSE 8080
+```
+
+## docker image build
+```agsl
+$ docker build -t username/이미지명:태그명 경로
+
+$ docker push username/이미지명:태그명
+```
+
 ## Reference Documentation And Sites
 
 - [AWS Docker](https://aws.amazon.com/ko/docker/)

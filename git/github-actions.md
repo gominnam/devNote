@@ -65,7 +65,7 @@ name: Deploy to AWS EC2
 on:
   push:
     branches:
-      - cicd
+      - main
 
 jobs:
   deploy:
@@ -80,10 +80,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-
-      - name: Print current directory
-        run: |
-          pwd    
 
       - name: Build Spring Boot application
         run: |
@@ -110,7 +106,23 @@ jobs:
           port: ${{ secrets.AWS_EC2_PORT }}
           script: |
             cd /home/ec2-user/web/server/github/workspace/build/libs
-            sudo systemctl restart websocket-chat
+            export SPRING_DATASOURCE_PASSWORD=${{ secrets.DB_PASSWORD }}
+            export JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }}
+            export GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}
+
+            # 기존에 실행중인 프로세스 ID 찾기
+            PID=$(ps -ef | grep websocket-chat.jar | grep -v grep | awk '{print $2}')
+            # PID가 존재하면 해당 프로세스 종료
+            if [ ! -z "$PID" ]; then
+              echo "Stopping existing application with PID $PID"
+              kill $PID
+              sleep 5
+            fi
+
+            # 새로운 jar 파일 실행
+            nohup java -jar /home/ec2-user/web/server/github/workspace/build/libs/websocket-chat.jar --spring.profiles.active=prod > websocket-chat.log 2>&1 &
+            disown
+            exit
 
 ```
 

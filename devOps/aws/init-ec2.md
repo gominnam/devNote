@@ -74,7 +74,7 @@ sudo docker logs [컨테이너 ID 또는 이름] //docker container 로그 확�
 ```mysql
 -- mysql 접속
 1. CREATE USER 'username'@'%' IDENTIFIED BY 'password'; -- 계정생성
-2. GRANT ALL PRIVILEGES ON *.* TO 'username'@'%'; -- 계정생성
+2. GRANT ALL PRIVILEGES ON *.* TO 'username'@'%'; -- 계정권한
 3. CREATE DATABASE schema_name;  --스키마 생성
 4. GRANT ALL PRIVILEGES ON schema_name.* TO 'username'@'%'; -- 스키마에 계정 권한 주기
 5. FLUSH PRIVILEGES; -- 권한 적용
