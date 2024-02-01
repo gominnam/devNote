@@ -35,6 +35,7 @@ $ docker login
   - docker login 을 다시 실행한다. 
 ```
 
+
 ## dockerfile 작성
 ```agsl 
 //dockerfile
@@ -46,12 +47,33 @@ FROM openjdk:18
 EXPOSE 8080
 ```
 
+
 ## docker image build
 ```agsl
 $ docker build -t username/이미지명:태그명 경로
 
 $ docker push username/이미지명:태그명
 ```
+
+
+## docker-compose
+```agsl
+//docker-compose 설치 최신버전은 최신 버전 번호로 수정
+- sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+//실행 권한 부여
+sudo chmod +x /usr/local/bin/docker-compose
+
+//심볼릭 링크 생성
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+//CentOS, Amazon linux2는 아래 명령어
+sudo dnf install libxcrypt-compat
+//Ubuntu, Debian
+sudo apt-get update
+sudo apt-get install libcrypt1
+```
+
 
 ## docker logs
 ```agsl
