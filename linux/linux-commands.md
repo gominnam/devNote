@@ -80,3 +80,9 @@
 
 - Kill the process
   - kill -9 process-id  # 프로세스 종료 // -9: 강제 종료
+
+
+- Network 
+  - sudo lsof -i :443  # list of files: 443 포트 사용 프로세스 확인
+  - sudo netstat -tuln | grep :443  # tuln: tcp, udp, listening, not-resolving
+
