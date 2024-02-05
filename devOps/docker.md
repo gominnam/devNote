@@ -80,6 +80,14 @@ sudo apt-get install libcrypt1
 $ docker logs [컨테이너 ID]
 ```
 
+
+## docker debug
+```agsl
+//FROM golang:1.16 AS builder     # builder 명칭이 stage
+docker build -t image-name:debug . --target=<stage-name>
+docker run -it image-name:debug /bin/bash
+```
+
 ## Reference Documentation And Sites
 
 - [AWS Docker](https://aws.amazon.com/ko/docker/)
