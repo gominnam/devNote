@@ -43,17 +43,10 @@ server block의 server_name에 yourdomain.com www.yourdomain.com 추가
 - sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
 ```
 
-### 2. Dockerized NginX에 Certbot 적용하기
-```agsl
-- docker-compose.yml 파일에 certbot 
-
-```
-
-```agsl
-
-```
 
 ## reference
 
 - [NginX](https://www.nginx.com/)
 - [reveerse-proxy](https://www.cloudflare.com/ko-kr/learning/cdn/glossary/reverse-proxy/)
+- [Certbot](https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
+- 
