@@ -54,8 +54,8 @@
   - sudo command  # 관리자 권한으로 실행
 
 
-- shut down(poweroff)
-  - shdo shutdown -h now  # 즉시 종료
+- shut down(power-off)
+  - sudo shutdown -h now  # 즉시 종료
   - sudo shutdown -h +10  # 10분 후 종료
   - sudo shutdown -h 20:25  # 20:25에 종료
 
@@ -65,8 +65,8 @@
 
 
 - Find the file
-  - find directory -name "file-name"  # 디렉토리에서 파일 찾기
-  - find directory -name "*.txt"  # 디렉토리에서 txt 파일 찾기
+  - find directory-name "file-name"  # 디렉토리에서 파일 찾기
+  - find directory-name "*.txt"  # 디렉토리에서 txt 파일 찾기
 
 
 - Find the file with grep
