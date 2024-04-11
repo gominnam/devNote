@@ -43,9 +43,9 @@ command: java -XX:+UseParallelGC -jar Application.java  # -XX:ParallelGCThreads=
 - Parallel Old GC: Parallel GC에서 Old 영역도 포함된 개선 버전. GC를 처리하는 스레드가 여러개이다.
 command: java -XX:+UseParallelOldGC -jar Application.java  # -XX:ParallelGCThreads=N : 사용할 쓰레드의 갯수
 
-- CMS GC: GC를 처리하는 스레드가 여러개이다. GC를 처리하는 동안 GC를 제외한 모든 스레드가 작업을 멈추지 않는다.(Java 14부터 사용 중지)
+- Concurrent Mark Sweep(CMS) GC: GC를 처리하는 스레드가 여러개이다. GC를 처리하는 동안 GC를 제외한 모든 스레드가 작업을 멈추지 않는다.(Java 14부터 사용 중지)
 
-- G1 GC: Young/Old 영역이 아닌 Region 영역이라는 새로운 개념을 도입. 상황에 따라 Eden, Survivor, Old 등 역할을 고정이 아닌 동적으로 부여
+- G1(Garbage first) GC: Young/Old 영역이 아닌 Region 영역이라는 새로운 개념을 도입. 상황에 따라 Eden, Survivor, Old 등 역할을 고정이 아닌 동적으로 부여
 일일이 메모리를 탐색하지 않고 메모리가 많이 차있는 영역을 우선 GC 한다. 결국 GC 빈도가 줄어드는 효과를 얻게 되는 원리
 command: java -XX:+UseG1GC -jar Application.java
 ```
