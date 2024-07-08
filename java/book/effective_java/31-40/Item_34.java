@@ -40,6 +40,17 @@ public class Item_34 {
             return Optional.ofNullable(stringToEnum.get(symbol));
         }
 
+        // 기존 열거 타입에 상수별 동작을 혼합하는 경우 switch는 좋은 선택이 될 수 있다.
+        public static Operation inverse(Operation op) {
+            switch(op) {
+                case PLUS: return MINUS;
+                case MINUS: return PLUS;
+                case TIMES: return DIVIDE;
+                case DIVIDE: return TIMES;
+                default: throw new AssertionError("Unknown op: " + op);
+            }
+        }
+
         //추상 메서드 선언하고 상수별 클래스몸체에서 재정의
         public abstract double apply(double x, double y);
     }
