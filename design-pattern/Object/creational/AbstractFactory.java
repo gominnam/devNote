@@ -1,4 +1,4 @@
-public class Abstract_Factory {
+public class AbstractFactory {
     // 1. 추상 제품 인터페이스 정의
     // Button 인터페이스
     static interface Button {
@@ -116,7 +116,11 @@ public class Abstract_Factory {
 
 :: 추상 팩토리 (Abstract Factory Pattern) ::
 
-1. 활용성
+1. 의도
+
+- 상세화된 서브클래스를 정의하지 않고도 서로 관련성이 있거나 독립적인 여러 객체의 군을 생성하기 위한 인터페이스를 제공
+
+2. 활용성
 
 - 객체가 생성되거나 구성, 표현되는 방식과 무관하게 시스템을 독립적으로 만들고자 할 때
 - 제품 클래스 라이브러리를 제공하고, 그들의 구현이 아닌 인터페이스를 노출시키고 싶은 경우
@@ -126,6 +130,5 @@ public class Abstract_Factory {
   이 구체 팩토리는 어떤 특정 구현을 갖는 제품 객체를 생성
 
 - 팩토리는 제품 객체를 생성하는 과정과 책임을 캡슐화한 것이기 때문에, 구체적인 구현 클래스가 사용자에게서 분리.
-
 
  */
