@@ -10,6 +10,7 @@ public class BuilderPattern{
         private final String phone;
         private final String address;
 
+        // inner class Builder
         public static class Builder {
             private final String firstName;
             private final String lastName;
