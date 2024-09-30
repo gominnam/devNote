@@ -15,21 +15,32 @@ public class Adaptor {
         }
     }
 
-    // AdvancedMediaPlayer 클래스를 상속하고, MediaPlayer 인터페이스를 구현
-    public class MediaAdapter extends AdvancedMediaPlayer implements MediaPlayer {
+    // Adaptee(AdvancedMediaPlayer)를 MediaPlayer 인터페이스에 맞게 변환하는 어댑터
+    public static class MediaAdapter implements MediaPlayer {
+
+        private AdvancedMediaPlayer advancedMediaPlayer;
+
+        public MediaAdapter(String audioType) {
+            if (audioType.equalsIgnoreCase("vlc")) {
+                advancedMediaPlayer = new AdvancedMediaPlayer();
+            } else if (audioType.equalsIgnoreCase("mp4")) {
+                advancedMediaPlayer = new AdvancedMediaPlayer();
+            }
+        }
 
         @Override
         public void play(String audioType, String fileName) {
             if (audioType.equalsIgnoreCase("vlc")) {
-                playVlc(fileName);  // Adaptee method 호출
+                advancedMediaPlayer.playVlc(fileName);
             } else if (audioType.equalsIgnoreCase("mp4")) {
-                playMp4(fileName);  // Adaptee method 호출
+                advancedMediaPlayer.playMp4(fileName);
             }
         }
     }
 
     // Client 클래스 MediaPlayer 인터페이스만 알고 사용
     public static class AudioPlayer implements MediaPlayer {
+        private MediaAdapter mediaAdapter;
 
         @Override
         public void play(String audioType, String fileName) {
@@ -68,10 +79,9 @@ public class Adaptor {
 
 : 호환성이 없는 인터페이스를 함께 동작할 수 있도록 변환하는 패턴
 
-3. Class Adapter Pattern
 
-: 상속을 이용한 Adapter 패턴
-: 퍼포먼스가 Object Adapter Pattern에 비해 더 좋다.
-: 강하게 결합해야할 이유가 없으면 Object 패턴으로 사용하는게 좋아보인다.
+
+
+
 
  */
