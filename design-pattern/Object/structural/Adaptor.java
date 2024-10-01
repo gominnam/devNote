@@ -79,9 +79,10 @@ public class Adaptor {
 
 : 호환성이 없는 인터페이스를 함께 동작할 수 있도록 변환하는 패턴
 
+3. Object Adapter Pattern
 
-
-
-
+: Adapter 클래스가 Adaptee 클래스를 상속받는 대신, Adaptee 클래스를 멤버 변수로 가짐
+: Adaptee 와 낮은 결합도
+: 다중 Adaptee 와 결합 가능
 
  */
