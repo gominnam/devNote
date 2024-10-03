@@ -12,6 +12,7 @@ public class Singleton {
     public static Singleton getInstance() {
         if(instance == null) {
             // 모든 스레드가 이 블록으로 진입하기 전에 차례를 기다리게 함.
+            // 멀티 스레드 환경에서 안전하게 인스턴스를 생성.
             synchronized (Singleton.class) {
                 if(instance == null) {
                     instance = new Singleton();
@@ -19,6 +20,10 @@ public class Singleton {
             }
         }
         return instance;
+    }
+
+    public void doSomething() {
+        System.out.println("Singleton instance is doing something.");
     }
 }
 
