@@ -81,6 +81,7 @@ public class Decorator {
         System.out.println(coffee.getCost());
 
         coffee = new WhipDecorator(coffee);
+        coffee.brewing();
         System.out.println(coffee.getCost());
     }
 }
